@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row my-5">
+    <div class="col-6 offset-3">
+      <h1>Example B1</h1>
+      <div>
+        <button class="btn btn-primary mt-5" (click)="this.normalSubscribe()">
+          Normal Subscribe
+        </button>
+      </div>
+      <div>
+        <button
+          class="btn btn-primary mt-5"
+          (click)="this.useMapOperatorToMultiplyEachValueBy10()"
+        >
+          Map 'val' => '10 * val'
+        </button>
+      </div>
+      <div>
+        <button
+          class="btn btn-primary mt-5"
+          (click)="this.useFilterToPrintEvenNumsOnly()"
+        >
+          Use 'filter' to print even numbers
+        </button>
+      </div>
+      <div>
+        <button
+          class="btn btn-primary mt-5"
+          (click)="this.useFilterAndMapToPrintEvenNumbersTimesTen()"
+        >
+          Use 'filter' and 'map' to print even numbers times 10
+        </button>
+      </div>
+      <div>
+        <button class="btn btn-primary mt-5" (click)="this.printWholeObjects()">
+          Print Whole Object
+        </button>
+      </div>
+      <div>
+        <button class="btn btn-primary mt-5" (click)="this.extractNames()">
+          Extract Names
+        </button>
+      </div>
+      <div>
+        <button class="btn btn-primary mt-5" (click)="this.extractAges()">
+          Extract Ages
+        </button>
+      </div>
+      <div>
+        <button
+          class="btn btn-primary mt-5"
+          (click)="this.useFilterToPrintAgesAbove25()"
+        >
+          Print Ages Above 25
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
