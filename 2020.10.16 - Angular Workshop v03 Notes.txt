@@ -1,0 +1,146 @@
+Up Pay
+Angular Workshop v03 Notes
+Oct 16, 2020
+
+--
+
+Today's workshop targets:
+- Familiarize self with basic concepts used in reactive design patterns in Angular
+	- Reactive design patterns are implemented using RxJS library
+	- Observer pattern with Iterator pattern combined with functional programming
+		- Functional programming examples: Haskell, Racket, F#, etc
+
+--
+
+Why RxJS?
+
+Main problem solved:
+	- Asynchronous Event Management
+	
+--
+
+Main concepts (excerpted from RxJS Overview/Introduction):
+
+Observable:
+	- a stream of values that can be observed
+	- stream comes from a producer, observable itself is usually not the producer
+	- observable can be made a producer
+	
+Observer:
+	- a consumer that observes the observable, consumes the values
+	- a collection of callbacks that knows how to listen to values delivered by observables
+	- 'Observers are just objects with three callbacks, one for each type of notification that an Observable may deliver.' - excerpted from https://rxjs-dev.firebaseapp.com/guide/observer
+	
+Subscription:
+	- represents the execution of an Observable, is primarily useful for canceling the execution
+	- relationship between an observer and an observable
+	
+Operators:
+	- are pure functions that enable a functional programming style of dealing with collections with operations like map, filter, concat, reduce, etc
+	- alter/adjust values from data stream before they are supplied to the observer/consumer
+	
+Subject and Scheulders will be discussed in a later workshop iA
+
+--
+
+Section A - OBSERVABLES, OBSERVERS and SUBSCRIPTIONS
+
+Example A1:
+Create our own observable
+- this observable is a producer itself
+- observable can emit 3 types of values/notifications
+	- using next(): emit next value
+	- using error(): throw an error
+	- using complete(): completes the observable
+	
+- can declare 3 types of callbacks in observer
+	- first callback tells observer how to respond to next() values
+	- second callback tells observer how to react to an error() value
+	- third callback tells an observer how to react when an observable is completed
+	- second and third callbacks are optional to declare, but good practice to always declare
+	
+- no more notifications can be delivered after an error() or complete() notifications
+	- part of the 'Observable' contract
+
+
+PULL VS PUSH MODELS:
+	- https://rxjs-dev.firebaseapp.com/guide/observable#pull-versus-push
+	
+
+Example A2:
+Subscribe and unsubscribe from an observable
+- in last example, observable completed on it own
+- it is possible an observable could never complete
+	- this is very common
+- we can stop an observer from observing by unsubscribing from the observable
+- notice the onDestroy method
+	- good practice to always unsubscribe from initiated subscriptions
+
+--
+
+Section B - Operators
+
+https://rxjs-dev.firebaseapp.com/guide/operators
+
+In simple terms, an operator 'operates' on the values received from an observable and forwards them to the observer
+
+Lots of operators for lots of different things:
+https://www.learnrxjs.io/learn-rxjs/operators
+https://rxjs-dev.firebaseapp.com/api
+
+TO figure out which operator to use:
+https://rxjs-dev.firebaseapp.com/operator-decision-tree
+If this fails, a plain old Google search should lead to the relevant StackOverflow question, hopefully
+
+
+Example B1:
+'from' operator:
+- https://www.learnrxjs.io/learn-rxjs/operators/creation/from
+- https://rxjs-dev.firebaseapp.com/api/index/function/from
+- create an observable from an array
+- each array item is emitted as a value/notification
+
+'map' operator:
+- https://www.learnrxjs.io/learn-rxjs/operators/transformation/map
+- https://rxjs-dev.firebaseapp.com/api/operators/map
+- map values to another value according to declared logic
+
+'filter' operator:
+- https://www.learnrxjs.io/learn-rxjs/operators/filtering/filter
+- https://rxjs-dev.firebaseapp.com/api/operators/filter
+- filters out values based on a boolean expression
+
+
+Example B2:
+'fromEvent' operator:
+- https://www.learnrxjs.io/learn-rxjs/operators/creation/fromevent
+- https://rxjs-dev.firebaseapp.com/api/index/function/fromEvent
+- turns an Event stream into an observable
+
+'tap' operator:
+- https://www.learnrxjs.io/learn-rxjs/operators/utility/do
+- https://rxjs-dev.firebaseapp.com/api/operators/tap
+- used to execute code with each value/notification emitted
+
+'take' operator:
+- https://www.learnrxjs.io/learn-rxjs/operators/filtering/take
+- https://rxjs-dev.firebaseapp.com/api/operators/take
+- takes 'n' of emitted values/notifcations, then completes
+
+'finalize' operator:
+- https://www.learnrxjs.io/learn-rxjs/operators/utility/finalize
+- runs when an observable completes or errors out
+
+
+--
+
+References and Further Reading:
+
+RxJS Primer:
+https://www.learnrxjs.io/learn-rxjs/concepts/rxjs-primer
+
+RxJS Overview/Introduction:
+https://rxjs-dev.firebaseapp.com/guide/overview
+
+
+
