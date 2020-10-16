@@ -17,7 +17,7 @@ export class A1Component implements OnInit {
       subscriber.next(2);
       // subscriber.error('This is an error message!');
       subscriber.next(3);
-      // subscriber.complete();
+      subscriber.complete();
       setTimeout(() => {
         subscriber.next(4);
         subscriber.complete();

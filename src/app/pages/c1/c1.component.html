@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="row my-5">
+    <div class="col-6 offset-3">
+      <button class="btn btn-primary mb-5" routerLink="/home">
+        Back to Home
+      </button>
+      <h1>Example C1</h1>
+      <h3>List of Companies</h3>
+      <ng-template [ngIf]="this.isLoading" [ngIfElse]="renderResults">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #renderResults>
+        <div *ngFor="let company of this.companiesArr">
+          <p>{{ company.name }}</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

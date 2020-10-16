@@ -1,3 +1,4 @@
+import { C1Component } from './pages/c1/c1.component';
 import { B2Component } from './pages/b2/b2.component';
 import { B1Component } from './pages/b1/b1.component';
 import { A2Component } from './pages/a2/a2.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'b2',
     component: B2Component,
+  },
+  {
+    path: 'c1',
+    component: C1Component,
   },
   {
     path: '**',

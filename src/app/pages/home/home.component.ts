@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  routes = ['a1', 'a2', 'b1', 'b2'];
+  routes = ['a1', 'a2', 'b1', 'b2', 'c1'];
 
   constructor() {}
 
