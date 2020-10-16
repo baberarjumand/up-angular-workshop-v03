@@ -39,7 +39,7 @@ Operators:
 	- are pure functions that enable a functional programming style of dealing with collections with operations like map, filter, concat, reduce, etc
 	- alter/adjust values from data stream before they are supplied to the observer/consumer
 	
-Subject and Scheulders will be discussed in a later workshop iA
+Subject and Schedulers will be discussed in a later workshop iA
 
 --
 
@@ -131,6 +131,12 @@ Example B2:
 - https://www.learnrxjs.io/learn-rxjs/operators/utility/finalize
 - runs when an observable completes or errors out
 
+--
+
+EXAMPLE C - Fetch Data from external api
+
+Fetching data from mockApi:
+https://5f59cabb8040620016ab960d.mockapi.io/companies
 
 --
 
